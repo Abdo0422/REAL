@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -25,5 +26,10 @@ class AdminController extends Controller
         $data =category::find($id);
         $data->delete();
         return redirect()->back()->with("message0","Category Deleted Successfully ");
+    }
+    public function view_product()
+    {
+        $data =product::all();
+        return view('admin.product',compact('data'));
     }
 }
