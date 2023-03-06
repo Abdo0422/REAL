@@ -30,16 +30,14 @@
             rgba(0, 0, 0, 0.1);
         }
 
-        th,
-        td {
+        th, td {
             padding: 15px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #fff;
-        }
-
-        th {
+            background-color: white;
+            color: black;
             text-align: left;
         }
+
+
 
         thead {
             th {
@@ -112,8 +110,8 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Category Name</td>
-                            <th>Action</td>
+                            <th>Category Name</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     @foreach ($data as $data)

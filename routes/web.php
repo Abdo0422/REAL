@@ -31,7 +31,9 @@ Route::get('/view_categories',[AdminController::class,'view_categories']);
 Route::post('/add_category',[AdminController::class,'add_category']);
 Route::get('/delete_category/{id}',[AdminController::class,'delete_category']);
 Route::get('/view_product',[AdminController::class,'view_product']);
-Route::get('/view_orders',[AdminController::class,'view_orders']);
-    
-
+Route::post("/add_product",[AdminController::class,"add_product"]);
+Route::get('/show_product',[AdminController::class,'show_product']);
+Route::get('/delete_product/{id}',[AdminController::class,'delete_product']);
+Route::get('/edit_product/{id}',[AdminController::class,'edit_product']);
+Route::post('/edit_product_confirm/{id}',[AdminController::class,'edit_product_confirm']);
 require __DIR__.'/auth.php';
