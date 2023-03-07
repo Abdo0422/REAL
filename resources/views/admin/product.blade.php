@@ -64,7 +64,7 @@
 </div>
 <div>
             <label>Product Price:</label> 
-                <input id="input_color" name="price" type="number" placeholder="Write a Price" required="">
+                <input id="input_color" name="price" type="number" min="0" placeholder="Write a Price" required="">
 </div>
 <div>
             <label>Product Quantity:</label> 

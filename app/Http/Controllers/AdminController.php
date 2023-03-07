@@ -75,11 +75,12 @@ class AdminController extends Controller
       $pro->price=$request->price;
       $pro->category=$request->category;
       $pro->quantity=$request->quantity;
+      $imagename=$request->hidden;      
       $image=$request->image;
-      $imagename=$request->hidden;
       if($image !='')
       {$imagename=rand().$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
-      $image->move(public_path('/product'),$imagename);}
+      $image->move(public_path('/product'),$imagename);
+    }
       $pro->save();
       return redirect()->back()->with("message","Product Updated Successsfully");
     }

@@ -41,7 +41,7 @@
         <div class="main-panel">
             <div class="content-wrapper">
             @if (session()->has('message'))
-                    <div class="alert alert-success" id="hide_now">
+                    <div class="alert alert-info" id="hide_now">
                         <button type="button" style="font-weight: bold;
                         color: #000;float:right;"
                             onclick="hide()">x</button>
@@ -52,8 +52,8 @@
             <div class="div_center">
 
             <h2 class="h2_style">Edit Product</h2>
-            <form enctype="multipart/form-data" action="{{url('/edit_product_confirm')}}" method="POST" >
-            
+            <form enctype="multipart/form-data" action="{{url('/edit_product_confirm' ,$pro->id)}}" method="POST" >
+            @csrf
           <div>
             <label>Product Title:</label>                
                 <input id="input_color"name="title" type="text" placeholder="Write a Title" value="{{ $pro->title }}" required="">
@@ -72,21 +72,25 @@
 </div>
 <div>
             <label>Product Category:</label> 
-                <select id="input_color" name="category" value="{{ $pro->category }}" required="">
-                  <option value="null" selected>{{$pro->category }}</option>
+                <select id="input_color" name="category" value="Choose" required="">
+                 
                   @foreach ($data as $data)
                   <option value="{{ $data->category_name }}">{{ $data->category_name }}</option>
                   @endforeach
                   </select> 
               </div>    
             <div>      
-            <label>Product Image:</label>  
+            <label>Current Product Image:</label>  
 <img style="margin:auto;" height=100 width=100 src="public/product/{{$pro->image}}">
                  
               </div> 
+              <div>      
+            <label>Change Product Image:</label>  
+<input type="file" name="image">                 
+              </div> 
               
               <div>
-                <input type="submit" class="btn btn-primary" value="finish">
+                <input type="submit" class="btn btn-primary" value="Update">
                 </div>       
       </form>
             </div>
