@@ -16,7 +16,7 @@ class AdminController extends Controller
     public function add_category(Request $request)
     {
         $data = new category;
-        $data->category_name=$request->catagory;
+        $data->category_name=$request->category;
         $data->save();
         return redirect()->back()->with("message","Category Added Successfully");
 
@@ -67,15 +67,14 @@ class AdminController extends Controller
       $data =category::all();
       return view('admin.edit_product',compact('pro','data'));
     }
-    public function edit_product_confirm(Request $request,$id)
-    {
+    public function edit_product_confirm(Request $request,$id) {
       $pro =product::find($id);
       $pro->title=$request->title;
       $pro->description=$request->description;
       $pro->price=$request->price;
       $pro->category=$request->category;
       $pro->quantity=$request->quantity;
-      $imagename=$request->hidden;      
+      $imagename=$request->hidden;
       $image=$request->image;
       if($image !='')
       {$imagename=rand().$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
