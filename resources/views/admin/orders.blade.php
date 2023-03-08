@@ -95,23 +95,25 @@
             <table>
                 <thead>
                     <tr>
-                        <th>User Name</th>
-                        <th>Email</th>
-                        <th>product_name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
+                        <th>Order ID</th>
+                        <th>Payment Method</th>
+                        <th>Order Date</th>
+                        <th>Delivery Date</th>
+                        <th>total</th>
+                        <th>Status</th>
 
-                        
+
                     </tr>
                 </thead>
                 @foreach ($data as $data)
                     <tbody>
                         <tr>
-                            <td>{{ $data->name }}</td>
-                            <td>{{ $data->email }}</td>
-                            <td>{{ $data->product_name }}</td>
-                            <td>{{ $data->quantity }}</td>
-                            <td>{{ $data->price }}</td>
+                            <td>{{ $data->orderID }}</td>
+                            <td>{{ $data->PaymentMethod }}</td>
+                            <td>{{ $data->OrderDate }}</td>
+                            <td>{{ $data->DeliveryDate }}</td>
+                            <td>{{ $data->total }}</td>
+                            <td>{{ $data->status }}</td>
 
 
                             </td>
