@@ -17,3 +17,8 @@
     <link rel="stylesheet" href="admin/assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="admin/assets/images/favicon.png" />
+    <style>
+        #in{
+            color:white;
+        }
+</style>

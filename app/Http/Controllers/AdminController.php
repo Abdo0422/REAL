@@ -7,7 +7,6 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Orders;
 
-
 class AdminController extends Controller
 {
     public function view_categories()
@@ -18,7 +17,7 @@ class AdminController extends Controller
     public function add_category(Request $request)
     {
         $data = new category;
-        $data->category_name=$request->category;
+        $data->category_name=$request->catagory;
         $data->save();
         return redirect()->back()->with("message","Category Added Successfully");
 
@@ -69,14 +68,15 @@ class AdminController extends Controller
       $data =category::all();
       return view('admin.edit_product',compact('pro','data'));
     }
-    public function edit_product_confirm(Request $request,$id) {
+    public function edit_product_confirm(Request $request,$id)
+    {
       $pro =product::find($id);
       $pro->title=$request->title;
       $pro->description=$request->description;
       $pro->price=$request->price;
       $pro->category=$request->category;
       $pro->quantity=$request->quantity;
-      $imagename=$request->hidden;
+      $imagename=$request->hidden;      
       $image=$request->image;
       if($image !='')
       {$imagename=rand().$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
@@ -109,18 +109,9 @@ class AdminController extends Controller
         return redirect()->back()->with("message0","Order Deleted Successfully ");
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public function show_your_product(Request $request)
+    {
+      $search=orders::where('name','LIKE','%$search%')->orWhere('id','LIKE','%$search%')->paginate(2);
+      return view('admin.show_your_product',compact("search"));    
+    }
 }
