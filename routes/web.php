@@ -38,4 +38,7 @@ Route::get('/edit_product/{id}',[AdminController::class,'edit_product']);
 Route::post('/edit_product_confirm/{id}',[AdminController::class,'edit_product_confirm']);
 Route::get('/product_details/{id}',[HomeController::class,'product_details']);
 Route::get('/view_orders',[AdminController::class,'view_orders']);
+Route::get('/delete_order/{id}',[AdminController::class,'delete_order']);
+Route::get('/edit_order/{id}',[AdminController::class,'edit_order']);
+Route::post('/edit_order_confirm/{id}',[AdminController::class,'edit_order_confirm']);
 require __DIR__.'/auth.php';

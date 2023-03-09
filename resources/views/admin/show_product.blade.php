@@ -81,7 +81,7 @@
                         <tr>
                         <th>Image</th>
                             <th>Title</th>
-                            <th>Description</th> 
+                            <th>Description</th>
                            <th>Category</th>
                             <th>Price</th>
                             <th>Quantity</th>

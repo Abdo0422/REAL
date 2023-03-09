@@ -101,22 +101,24 @@
                         <th>Delivery Date</th>
                         <th>total</th>
                         <th>Status</th>
+                        <th>Action</th>
 
 
                     </tr>
                 </thead>
-                @foreach ($data as $data)
+                @foreach ($order as $order)
                     <tbody>
                         <tr>
-                            <td>{{ $data->orderID }}</td>
-                            <td>{{ $data->PaymentMethod }}</td>
-                            <td>{{ $data->OrderDate }}</td>
-                            <td>{{ $data->DeliveryDate }}</td>
-                            <td>{{ $data->total }}</td>
-                            <td>{{ $data->status }}</td>
-
-
-                            </td>
+                            <td>{{ $order->id }}</td>
+                            <td>{{ $order->PaymentMethod }}</td>
+                            <td>{{ $order->OrderDate }}</td>
+                            <td>{{ $order->DeliveryDate }}</td>
+                            <td>{{ $order->total }}DH</td>
+                            <td>{{ $order->status }}</td>
+                            <td>
+                                <a class="btn btn-info" href="{{ url('/edit_order', $order->id) }}">Edit</a>
+                                <a onclick="return confirm('Are you sure?')" class="btn btn-danger" href="{{ url('/delete_order', $order->id) }}">Delete</a>
+                                </td>
                         </tr>
                     </tbody>
                 @endforeach

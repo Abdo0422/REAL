@@ -87,7 +87,40 @@ class AdminController extends Controller
     }
     public function view_orders()
     {
-        $data =Orders::all();
-      return view('admin.orders',compact('data'));
+        $order =Orders::all();
+      return view('admin.view_orders',compact('order'));
     }
+    public function edit_order($id)
+    {
+        $order = Orders::find($id);
+        return view('admin.edit_order',compact('order'));
+    }
+    public function edit_order_confirm(Request $request,$id) {
+        $order = Orders::find($id);
+        $order->status = $request->status;
+        $order->save();
+        return redirect()->back()->with("message","Order Updated Successsfully");
+
+      }
+
+    public function delete_order($id) {
+        $order = orders::find($id);
+        $order->delete();
+        return redirect()->back()->with("message0","Order Deleted Successfully ");
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

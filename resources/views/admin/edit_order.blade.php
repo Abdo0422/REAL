@@ -52,42 +52,16 @@
             <div class="div_center">
 
             <h2 class="h2_style">Edit Product</h2>
-            <form enctype="multipart/form-data" action="{{url('/edit_product_confirm' ,$pro->id)}}" method="POST" >
+            <form enctype="multipart/form-data" action="{{url('/edit_order_confirm' ,$order->id)}}" method="POST" >
             @csrf
           <div>
-            <label>Product Title:</label>
-                <input id="input_color"name="title" type="text" placeholder="Write a Title" value="{{ $pro->title }}" required="">
+            <label>Statue:</label>
+                <select id="input_color" name="status"  value="{{ $order->status }}" required="">
+                    <option value="Pending">Pending</option>
+                    <option value="Process">Process</option>
+                    <option value="Closed">Closed</option>
+                </select>
          </div>
-<div>
-            <label>Product Description:</label>
-                <input id="input_color" name="description" type="text" placeholder="Write a Description" value="{{ $pro->description }}" required="">
-</div>
-<div>
-            <label>Product Price:</label>
-                <input id="input_color" name="price" type="number" placeholder="Write a Price" value="{{ $pro->price }}" required="">
-</div>
-<div>
-            <label>Product Quantity:</label>
-                <input id="input_color" name="quantity"type="number" min="0" placeholder="Write a Quantity" value="{{ $pro->quantity }}" required="">
-</div>
-<div>
-            <label>Product Category:</label>
-                <select id="input_color" name="category" value="Choose" required="">
-
-                  @foreach ($data as $data)
-                  <option value="{{ $data->category_name }}">{{ $data->category_name }}</option>
-                  @endforeach
-                  </select>
-              </div>
-            <div>
-            <label>Current Product Image:</label>
-<img style="margin:auto;" height=100 width=100 src="public/product/{{$pro->image}}">
-
-              </div>
-              <div>
-            <label>Change Product Image:</label>
-<input type="file" name="image">
-              </div>
 
               <div>
                 <input type="submit" class="btn btn-primary" value="Update">
