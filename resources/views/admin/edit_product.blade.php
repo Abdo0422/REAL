@@ -81,7 +81,7 @@
               </div>
             <div>
             <label>Current Product Image:</label>
-<img style="margin:auto;" height=100 width=100 src="public/product/{{$pro->image}}">
+<img style="margin:auto;" height=100 width=100 src="{{ asset('storage/product/'.$pro->image) }}"><br><br>
 
               </div>
               <div>
