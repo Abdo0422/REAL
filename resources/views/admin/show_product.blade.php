@@ -1,3 +1,7 @@
+<?php
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -91,7 +95,7 @@
                     @foreach ($pro as $pro)
                         <tbody>
                             <tr>
-                                <td><img src={{('public/product/').$pro->image}}></td>
+                                <td><img width="100px" height="100px" src="{{ asset('storage/product/'.$pro->image) }}" /></td>
                                 <td>{{ $pro->title }}</td>
                                 <td>{{ $pro->description }}</td>
                                 <td>{{ $pro->category }}</td>

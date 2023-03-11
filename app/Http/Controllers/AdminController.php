@@ -35,17 +35,18 @@ class AdminController extends Controller
     }
     public function add_product(Request $request)
     {
-      $pro = new product;
-      $pro->title=$request->title;
-      $pro->description=$request->description;
-      $pro->price=$request->price;
-      $pro->category=$request->category;
-      $pro->quantity=$request->quantity;
-      $image=$request->image;
-      $imagename=$request->hidden;
-      if($image !='')
-      {$imagename=rand().$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
-      $image->move(public_path('/product'),$imagename);}
+        $pro = new product;
+        $pro->title=$request->title;
+        $pro->description=$request->description;
+        $pro->price=$request->price;
+        $pro->category=$request->category;
+        $pro->quantity=$request->quantity;
+        $fileName = time() . '.' . $request->image->extension();
+        $request->image->storeAs('public/product', $fileName);
+        $pro->image = $fileName;
+
+
+
 
 
       $pro->save();
@@ -76,7 +77,7 @@ class AdminController extends Controller
       $pro->price=$request->price;
       $pro->category=$request->category;
       $pro->quantity=$request->quantity;
-      $imagename=$request->hidden;      
+      $imagename=$request->hidden;
       $image=$request->image;
       if($image !='')
       {$imagename=rand().$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
@@ -112,6 +113,6 @@ class AdminController extends Controller
     public function show_your_order(Request $request)
     {
       $search=orders::where('name','LIKE','%$search%')->orWhere('id','LIKE','%$search%')->paginate(2);
-      return view('admin.show_your_order',compact("search"));    
+      return view('admin.show_your_order',compact("search"));
     }
 }
