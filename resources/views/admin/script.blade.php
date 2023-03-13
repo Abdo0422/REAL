@@ -14,6 +14,7 @@
 <script src="admin/assets/js/misc.js"></script>
 <script src="admin/assets/js/settings.js"></script>
 <script src="admin/assets/js/todolist.js"></script>
+<script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js"></script>
 <!-- endinject -->
 <!-- Custom js for this page -->
 <script src="admin/assets/js/dashboard.js"></script>
