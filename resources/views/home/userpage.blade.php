@@ -43,6 +43,12 @@
 
         @auth
         <x-app-layout>
+            <form enctype="multipart/form-data" action="{{url('/search_product')}}" action="">
+                <input name="search" className='form-control me-2' type="text" placeholder="What are you looking for?"/>
+                <input type="submit" value="search" />
+                
+
+            </form>
         </x-app-layout>
   <ul>
         @else

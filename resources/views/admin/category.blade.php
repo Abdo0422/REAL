@@ -112,6 +112,8 @@
                         <tr>
                             <th>Category Name</th>
                             <th>Action</th>
+                            <th>Related</th>
+
                         </tr>
                     </thead>
                     @foreach ($data as $data)
@@ -119,7 +121,11 @@
                             <tr>
                                 <td>{{ $data->category_name }}</td>
                                 <td><a onclick="return confirm('Are you sure?')" class="btn btn-danger" href="{{ url('/delete_category', $data->id) }}">Delete</a>
+                                <td><a class="btn btn-info" href="{{ url('/show_product', $data->id) }}">Relative</a>
+
+
                                 </td>
+
                             </tr>
                         </tbody>
                     @endforeach

@@ -54,6 +54,14 @@
             <h2 class="h2_style">Add Product</h2>
             <form enctype="multipart/form-data" action="{{url('/add_product')}}" method="POST" >
             @csrf
+            <label>Product Category:</label>
+            <select id="input_color" name="category_id"required="">
+              <option value="null" selected>Choose</option>
+              @foreach ($categories as $category)
+              <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+              @endforeach
+              </select>
+          </div>
           <div>
             <label>Product Title:</label>
                 <input id="input_color"name="title" type="text" placeholder="Write a Title" required="">
@@ -71,20 +79,15 @@
                 <input id="input_color" name="quantity"type="number" min="0" placeholder="Write a Quantity" required="">
 </div>
 <div>
-            <label>Product Category:</label>
-                <select id="input_color" name="category"required="">
-                  <option value="null" selected>Choose</option>
-                  @foreach ($data as $data)
-                  <option value="{{ $data->category_name }}">{{ $data->category_name }}</option>
-                  @endforeach
-                  </select>
-              </div>
+
             <div>
+
+                    <div>
             <label>Product Image:</label>
 
             <input type="file" name="image" id="image">
               </div>
-              <input type="text" id="hidden"name="hidden" value="{{$data->image}}">
+              <input type="text" id="hidden"name="hidden" value="{{$category->image}}">
               <div>
                 <input type="submit" class="btn btn-primary" value="Add Product">
                 </div>
