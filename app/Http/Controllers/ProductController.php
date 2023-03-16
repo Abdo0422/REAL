@@ -31,17 +31,18 @@ class ProductController extends Controller
         return redirect()->back()->with("message","Product Added Successsfully");
     }
 
-    public function show_product($id = null)
+    public function show_product()
     {
-        $query = Product::query();
-
-    if ($id) {
-        $query->where('category_id', $id);
-    }
-
-        $pro = $query->get();
-
+        $pro = Product::all();
         return view('admin.show_product',compact('pro'));
+    }
+    public function show__product($id)
+    {
+        $pro = Product::whereHas('category', function($query) use ($id) {
+            $query->where('id', $id);
+        })->get();
+
+        return view('admin.show__product',compact('pro'));
     }
 
     public function delete_product($id)

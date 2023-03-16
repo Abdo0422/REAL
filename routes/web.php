@@ -36,7 +36,7 @@ Route::get('/delete_category/{id}',[CategoryController::class,'delete_category']
 Route::get('/view_product',[ProductController::class,'add_product'])->name('admin.add_product');
 Route::post("/add_product",[ProductController::class,"add_product_db"]);
 Route::get('/show_product',[ProductController::class,'show_product'])->name('admin.show_product');
-Route::get('/show_product/{id}',[ProductController::class,'show_product'])->name('admin.show_product/{id}');
+Route::get('/show__product/{id}',[ProductController::class,'show__product']);
 Route::get('/delete_product/{id}',[ProductController::class,'delete_product']);
 Route::get('/edit_product/{id}',[ProductController::class,'edit_product']);
 Route::post('/edit_product_confirm/{id}',[ProductController::class,'edit_product_confirm']);
