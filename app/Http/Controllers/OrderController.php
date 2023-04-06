@@ -26,14 +26,14 @@ class OrderController extends Controller
       }
 
     public function delete_order($id) {
-        $order = orders::find($id);
+        $order = Orders::find($id);
         $order->delete();
         return redirect()->back()->with("message0","Order Deleted Successfully ");
 
     }
     public function show_your_order(Request $request)
     {
-      $search=orders::where('name','LIKE','%$search%')->orWhere('id','LIKE','%$search%')->paginate(2);
+      $search = Orders::where('name','LIKE','%$search%')->orWhere('id','LIKE','%$search%')->paginate(2);
       return view('admin.show_your_order',compact("search"));
     }
 }

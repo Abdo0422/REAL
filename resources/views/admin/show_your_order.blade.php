@@ -95,12 +95,12 @@
                                 <td>{{ $search->name }}</td>
                                 <td>{{ $search->email }}</td>
                                 <td>{{ $search->product_ame }}</td>
-                                 <td>{{ $search->price }}</td>
-                               <td>{{ $search->quantity }}</td>
-                               <td>
-                               <a class="btn btn-info" href="{{ url('/edit_product', $pro->id) }}">Edit</a>
-                               <a onclick="return confirm('Are you sure?')" class="btn btn-danger" href="{{ url('/delete_product', $pro->id) }}">Delete</a>
-                               </td>
+                                <td>{{ $search->price }}</td>
+                                <td>{{ $search->quantity }}</td>
+                                <td>
+                                <a class="btn btn-info" href="{{ url('/edit_product', $pro->id) }}">Edit</a>
+                                <a onclick="return confirm('Are you sure?')" class="btn btn-danger" href="{{ url('/delete_product', $pro->id) }}">Delete</a>
+                                </td>
                             </tr>
                         </tbody>
                     @endforeach

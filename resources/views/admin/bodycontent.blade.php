@@ -1,6 +1,5 @@
 <div class="main-panel">
     <div class="content-wrapper">
-      
     <div class="container">
 
 <div class="row my-3">
@@ -63,7 +62,7 @@
 <canvas id="myChart" style="width:100%;max-width:700px;height:500px;margin-top:100px;margin-bottom:70px;"></canvas>
 
 <script>
-    
+
 var now = new Date();
 var daysOfYear = [];
 for (var d = new Date(2023, 3, 1); d <= now; d.setDate(d.getDate() + 1)) {
@@ -74,17 +73,17 @@ new Chart("myChart", {
   type: "line",
   data: {
     labels: daysOfYear,
-    datasets: [{ 
+    datasets: [{
       data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
       borderColor: "red",
       fill: false,
       label:"Total Products"
-    }, { 
+    }, {
       data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
       borderColor: "green",
       fill: false,
       label:"Order Pending"
-    }, { 
+    }, {
       data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
       borderColor: "blue",
       fill: false,

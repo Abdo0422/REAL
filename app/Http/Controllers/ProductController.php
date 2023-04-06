@@ -59,11 +59,13 @@ class ProductController extends Controller
     }
     public function edit_product_confirm(Request $request,$id)
     {
+        $data =Category::all();
+        $data->category_name=$request->category_name;
+
       $pro =Product::find($id);
       $pro->title=$request->title;
       $pro->description=$request->description;
       $pro->price=$request->price;
-      $pro->category=$request->category;
       $pro->quantity=$request->quantity;
       $imagename=$request->hidden;
       $image=$request->image;

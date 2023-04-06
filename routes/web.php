@@ -18,7 +18,6 @@ use App\Http\Controllers\OrderController;
 |
 */
 
-Route::get('/',[HomeController::class,'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -47,4 +46,7 @@ Route::get('/edit_order/{id}',[OrderController::class,'edit_order']);
 Route::post('/edit_order_confirm/{id}',[OrderController::class,'edit_order_confirm']);
 Route::get('/show_your_order',[OrderController::class,'show_your_order']);
 Route::get('/search_product',[HomeController::class,'search_product']);
+Route::get('/', function () {
+    return view('index');
+});
 require __DIR__.'/auth.php';
