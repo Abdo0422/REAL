@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
@@ -12,12 +15,17 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('Signin') }}">
             @csrf
 
             <div>
                 <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                <x-input id="email" class="block mt-1 w-full  @error('email') is-invalid @enderror" type="email" name="email"  value="old('email')" required autofocus autocomplete="username" />
+                @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
             </div>
 
             <div class="mt-4">

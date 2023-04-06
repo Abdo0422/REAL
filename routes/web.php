@@ -49,4 +49,8 @@ Route::get('/search_product',[HomeController::class,'search_product']);
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/{any}', function () {
+    return view('index');
+})->where('any', '.*');
+
 require __DIR__.'/auth.php';
