@@ -1,16 +1,11 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import react from '@vitejs/plugin-react';
+const reactPlugin = require('@vitejs/plugin-react')
+const { defineConfig } = require('vite')
 
-export default defineConfig({
-    plugins: [
-        laravel({
-            input: [
-                'resources/sass/app.scss',
-                'resources/js/app.js',
-            ],
-            refresh: true,
-        }),
-        react(),
-    ],
-});
+module.exports = defineConfig({
+  plugins: [reactPlugin()],
+  resolve: {
+    alias: {
+      '@': '/public'
+    }
+  },
+})
