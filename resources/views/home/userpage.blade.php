@@ -42,20 +42,21 @@
         @if (Route::has('login'))
 
         @auth
+        <div style=" position:absolute;top: 0;
+        right: 0;margin:10px;">
         <x-app-layout>
 
         </x-app-layout>
-  <ul>
+
+    </div>
+
         @else
-<ul>
-        <li><a href="{{ route('login') }}">sign in</a></li>
-        <li><a href="{{ route('register') }}">sign up</a></li>
+
 
         @endauth
 
         @endif
-</ul>
-    <h1>Groupe frontend code</h1>
+
 </body>
 
 </html>

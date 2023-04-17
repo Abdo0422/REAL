@@ -217,6 +217,24 @@ class Str
     }
 
     /**
+     * Get the character at the specified index.
+     *
+     * @param  string  $subject
+     * @param  int  $index
+     * @return string|false
+     */
+    public static function charAt($subject, $index)
+    {
+        $length = mb_strlen($subject);
+
+        if ($index < 0 ? $index < -$length : $index > $length - 1) {
+            return false;
+        }
+
+        return mb_substr($subject, $index, 1);
+    }
+
+    /**
      * Determine if a given string contains a given substring.
      *
      * @param  string  $haystack
@@ -790,7 +808,7 @@ class Str
             while (($len = strlen($string)) < $length) {
                 $size = $length - $len;
 
-                $bytesSize = (int) ceil(($size) / 3) * 3;
+                $bytesSize = (int) ceil($size / 3) * 3;
 
                 $bytes = random_bytes($bytesSize);
 
@@ -899,9 +917,10 @@ class Str
      * @param  string|iterable<string>  $search
      * @param  string|iterable<string>  $replace
      * @param  string|iterable<string>  $subject
+     * @param  bool  $caseSensitive
      * @return string
      */
-    public static function replace($search, $replace, $subject)
+    public static function replace($search, $replace, $subject, $caseSensitive = true)
     {
         if ($search instanceof Traversable) {
             $search = collect($search)->all();
@@ -915,7 +934,9 @@ class Str
             $subject = collect($subject)->all();
         }
 
-        return str_replace($search, $replace, $subject);
+        return $caseSensitive
+                ? str_replace($search, $replace, $subject)
+                : str_ireplace($search, $replace, $subject);
     }
 
     /**
@@ -1130,7 +1151,7 @@ class Str
      */
     public static function squish($value)
     {
-        return preg_replace('~(\s|\x{3164})+~u', ' ', preg_replace('~^[\s\x{FEFF}]+|[\s\x{FEFF}]+$~u', '', $value));
+        return preg_replace('~(\s|\x{3164}|\x{1160})+~u', ' ', preg_replace('~^[\s\x{FEFF}]+|[\s\x{FEFF}]+$~u', '', $value));
     }
 
     /**

@@ -21,7 +21,8 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="">
+        <div style=" position:absolute;top: 0;
+        right: 0;margin:10px;">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -42,7 +43,7 @@
         @stack('modals')
 
         @livewireScripts
-        
+
 
     </body>
 </html>

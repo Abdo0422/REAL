@@ -1,13 +1,12 @@
 <div class="main-panel">
     <div class="content-wrapper">
-    <div class="container">
 
-<div class="row my-3">
+    <div class="container">
+    <div class="row my-3" >
     <div class="col-md-4">
-        <div class="card text-center card-info">
+        <div class="card text-center card-info"style="margin-top:-40px">
             <div class="card-block">
                 <h4 class="card-title">Total Products</h4>
-                <h2><i class="fa fa-home fa-3x"></i></h2>
             </div>
             <div class="row p-2 no-gutters">
             <div class="col-12">
@@ -19,10 +18,9 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="card text-center card-info">
+        <div class="card text-center card-info"style="margin-top:-40px">
             <div class="card-block">
                 <h4 class="card-title">Total Orders</h4>
-                <h2><i class="bi bi-person"></i></h2>
             </div>
             <div class="row p-2 no-gutters">
                 <div class="col-6">
@@ -42,7 +40,7 @@
     </div>
 
     <div class="col-md-4">
-        <div class="card text-center card-info">
+        <div class="card text-center card-info"style="margin-top:-40px">
             <div class="card-block">
                 <h4 class="card-title">Total Customers</h4>
                 <h2><i class="bi bi-person"></i></h2>
@@ -57,15 +55,19 @@
         </div>
     </div>
 </div>
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-<body>
-<canvas id="myChart" style="width:100%;max-width:700px;height:500px;margin-top:100px;margin-bottom:70px;"></canvas>
+
+<h1 style="font-size:30px;font-family:ariel;margin-top:50px">Changes on Orders and Products:</h1>
+<canvas id="myChart" style="max-width:900px;height:700px;margin-top:20px;margin-bottom:70px;margin-left:10px"></canvas>
 
 <script>
 
 var now = new Date();
 var daysOfYear = [];
-for (var d = new Date(2023, 3, 1); d <= now; d.setDate(d.getDate() + 1)) {
+for (var d = new Date(2023, 3, 10); d <= now; d.setDate(d.getDate() + 1)) {
     daysOfYear.push(new Date(d));
 }
 
@@ -74,17 +76,17 @@ new Chart("myChart", {
   data: {
     labels: daysOfYear,
     datasets: [{
-      data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+      data: [0,{{$total_product}},5,10,15,20,25,30,35,40,45,50],
       borderColor: "red",
       fill: false,
       label:"Total Products"
     }, {
-      data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+      data: [0,{{$order_pending}},5,10,15,20,25,30,35,40,45,50],
       borderColor: "green",
       fill: false,
       label:"Order Pending"
     }, {
-      data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+      data: [0,{{$order_delivered}},5,10,15,20,25,30,35,40,45,50],
       borderColor: "blue",
       fill: false,
       label:"Order Delivered"
@@ -98,11 +100,18 @@ new Chart("myChart", {
 </div>
 
     </div>
-    <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-          <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © REAL 2023</span>
-        </div>
-      </footer>
+    <footer>
+<div class="footer">
+
+<div class="row">
+
+</div>
+
+<div class="row">
+<p style="text-align:center;"> Copyright © 2023 REAL - All rights reserved </p>
+</div>
+</div>
+</footer>
       <!-- partial -->
     </div>
     <!-- main-panel ends -->
